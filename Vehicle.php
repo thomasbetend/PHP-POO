@@ -2,10 +2,10 @@
 
 class Vehicle {
 
-    protected int $nbWheels ;
-    protected int $currentSpeed;
-    protected string $color; 
-    protected int $nbSeats;
+        protected int $nbWheels ;
+        protected int $currentSpeed;
+        protected string $color; 
+        protected int $nbSeats;
 
     public function __construct(string $color, int $nbSeats,)
     {
