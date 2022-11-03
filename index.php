@@ -1,51 +1,50 @@
 <?php
-require_once('MotorWay.php');
-require_once('ResidentialWay.php');
-require_once('PedestrianWay.php');
-require_once('Car.php');
-require_once('Bicycle.php');
-require_once('Skateboard.php');
 
-$tesla = new Car('red', 5, 'electric');
-$peugeot208CC = new Car('blue', 4, 'gasoil');
-$triporteur = new Bicycle('grey', 4);
-$longBoard = new Skateboard('black', 1, 120);
-
-$motorwaySun = new MotorWay(4, 130);
-$residentialWaySeaView = new ResidentialWay(2, 50);
-$pedestrianWayWoody = new PedestrianWay(1,10);
-
-echo $motorwaySun->addVehicle($tesla) . '<br>';
-echo $motorwaySun->addVehicle($peugeot208CC) . '<br>';
-echo $motorwaySun->addVehicle($triporteur) . '<br>';
-
-echo $residentialWaySeaView->addVehicle($triporteur) . '<br>';
-echo $residentialWaySeaView->addVehicle($longBoard) . '<br>';
-
-echo $pedestrianWayWoody->addVehicle($triporteur) . '<br>';
-echo $pedestrianWayWoody->addVehicle($tesla) . '<br>';
-
-
-var_dump($motorwaySun); 
-var_dump($residentialWaySeaView); 
-var_dump($pedestrianWayWoody);
-
-
-
-
-
-
-
-
-/* $batmans = ['robin', 'batman', 'joker'];
-
-function bat($array){
-
-    foreach($array as $element){
-        return $element;
+/* function invert(int $number) : float {
+    if($number === 0) {
+        throw new Exception("Division par zéro");
     }
+    return 1 / $number;
 
 }
 
-echo bat($batmans);
- */
+try {
+    echo invert(5), "<br>";
+    echo invert(0);
+} catch (Exception $e){
+    echo $e->getMessage(), "<br>";
+} */
+
+require_once('Car.php');
+$car1 = new Car('blue', 4, 'electric');
+
+$car1->setCurrentSpeed(70);
+echo $car1->brake(), "<br>";
+$car1->setParkBrake(true);
+
+try {
+    echo $car1->start();
+}
+catch (Exception $e){
+    echo $e->getMessage(), "<br>";
+    $car1->setParkBrake(false);
+}
+finally {
+    echo "Ma voiture roule comme un donut.";
+}
+
+var_dump($car1);
+
+
+/* class Point {
+    protected int $x;
+    protected int $y;
+
+    public function __construct($x, $y = 0) {
+        $this->x = $x;
+        $this->y = $y;
+    }
+}
+
+$point1 = new Point(2); */
+
