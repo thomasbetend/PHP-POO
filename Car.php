@@ -1,8 +1,9 @@
 <?php
 
 require_once('Vehicle.php');
+require_once('LightableInterface.php');
 
-class Car extends Vehicle {
+class Car extends Vehicle implements LightableInterface  {
 
     public const ALLOWED_ENERGIES = ['gasoil', 'electric', 'SP95'];
     private string $energy;
@@ -14,15 +15,18 @@ class Car extends Vehicle {
         $this->setEnergy($energy);
     }
 
-    public function start() : string 
+    public function switchOn(): bool
     {
-        $sentence = "";
+        return true;
+    }
 
-        if($this->hasParkBrake = true){
-            throw new Exception("La voiture a le frein à main. Impossible d'avancer.");
-        } else {
-            $sentence = "Let's go !!!";
-        }
+    public function switchOff(): bool
+    {
+        return false;
+    }
+
+    public function start() : string {
+        $sentence = "Let's go !!!";
         
         return $sentence;
     }
