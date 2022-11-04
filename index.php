@@ -1,24 +1,24 @@
 <?php
-
 require_once('Car.php');
-$car1 = new Car('blue', 4, 'electric');
+require_once('Bicycle.php');
+require_once('Skateboard.php');
 
-$car1->setCurrentSpeed(70);
-echo $car1->brake(), "<br>";
-$car1->setParkBrake(true);
+$tesla = new Car('red', 5, 'electric');
+$peugeot208CC = new Car('blue', 4, 'gasoil');
+$triporteur = new Bicycle('grey', 4);
+$longBoard = new Skateboard('black', 1);
 
-try {
-    echo $car1->start();
-}
-catch (Exception $e){
-    echo $e->getMessage(), "<br>";
-    $car1->setParkBrake(false);
-}
-finally {
-    echo "Ma voiture roule comme un donut.";
-}
+$triporteur->setCurrentSpeed(10);
 
-var_dump($car1);
+var_dump($longBoard);
+var_dump($triporteur); 
+
+var_dump($triporteur->switchOn());
+
+var_dump($tesla->switchOn());
+
+
+
 
 
 
