@@ -51,11 +51,13 @@ class Vehicle {
 
     public function brake(): string {
         $sentence = "";
+
         while($this->currentSpeed>0){
             $this->currentSpeed-=5;
             $sentence .= "Brake !!! ";
         }     
         $sentence .= "I'm stopped.";
+        
         return $sentence;
     }
 }

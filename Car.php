@@ -27,6 +27,7 @@ class Car extends Vehicle implements LightableInterface  {
 
     public function start() : string {
         $sentence = "Let's go !!!";
+        
         return $sentence;
     }
 
