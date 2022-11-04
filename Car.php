@@ -14,8 +14,15 @@ class Car extends Vehicle {
         $this->setEnergy($energy);
     }
 
-    public function start() : string {
-        $sentence = "Let's go !!!";
+    public function start() : string 
+    {
+        $sentence = "";
+
+        if($this->hasParkBrake = true){
+            throw new Exception("La voiture a le frein à main. Impossible d'avancer.");
+        } else {
+            $sentence = "Let's go !!!";
+        }
         
         return $sentence;
     }
